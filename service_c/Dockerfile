@@ -8,6 +8,7 @@ COPY gradle /app/gradle
 COPY src /app/src
 
 # Сборка приложения (fat JAR)
+RUN chmod +x ./gradlew
 RUN ./gradlew clean bootJar --no-daemon
 
 # Stage 2: Run
