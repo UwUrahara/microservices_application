@@ -4,6 +4,6 @@ import mentorship.roadmap.microservices.service_b.dto.MessageRequestDto;
 
 import java.util.List;
 
-public interface MessageService {
-    void save(List<MessageRequestDto> messageRequestDtos);
+public interface MessageProcessor {
+    void process(List<MessageRequestDto> messageRequestDtoList);
 }

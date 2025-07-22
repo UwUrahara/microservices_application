@@ -1,0 +1,26 @@
+package mentorship.roadmap.microservices.service_c.service;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.RequiredArgsConstructor;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.stereotype.Component;
+
+@Component
+@RequiredArgsConstructor
+public class KafkaProducerImpl implements KafkaProducer {
+
+    private static final String TOPIC = "out";
+
+    private final KafkaTemplate<String, String> kafkaTemplate;
+
+    @Override
+    public void sendMessage(Object message) {
+        try {
+            kafkaTemplate.send(TOPIC, new ObjectMapper().writeValueAsString(message));
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+}

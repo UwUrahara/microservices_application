@@ -15,7 +15,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 public class Message {
     @Id
-    private Long id;
+    private String id;
     private String data;
     private MessageType type;
 }

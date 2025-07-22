@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import mentorship.roadmap.microservices.service_a.dto.KafkaMessageDto;
 import mentorship.roadmap.microservices.service_a.dto.MessageRequestDto;
-import mentorship.roadmap.microservices.service_a.mapper.ServiceBClient;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;

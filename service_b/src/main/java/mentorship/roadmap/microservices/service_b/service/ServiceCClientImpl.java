@@ -1,6 +1,6 @@
-package mentorship.roadmap.microservices.service_a.mapper;
+package mentorship.roadmap.microservices.service_b.service;
 
-import mentorship.roadmap.microservices.service_a.dto.MessageRequestDto;
+import mentorship.roadmap.microservices.service_b.dto.MessageRequestDto;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
@@ -11,12 +11,12 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 
 @Component
-public class ServiceBClientImpl implements ServiceBClient {
+public class ServiceCClientImpl implements ServiceCClient {
     private final RestTemplate restTemplate;
-    private static final String PROCESS_PATH = "/api/process";
+    private static final String PROCESS_PATH = "/api/save";
 
-    public ServiceBClientImpl(
-            @Qualifier("serviceBClient")
+    public ServiceCClientImpl(
+            @Qualifier("serviceCClient")
             RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }

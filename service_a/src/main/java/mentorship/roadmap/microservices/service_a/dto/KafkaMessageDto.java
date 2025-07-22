@@ -1,9 +1,9 @@
 package mentorship.roadmap.microservices.service_a.dto;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import mentorship.roadmap.microservices.service_a.enumeration.MessageType;
 
 import java.io.Serializable;
 
@@ -11,6 +11,6 @@ import java.io.Serializable;
 @Getter
 @Setter
 public class KafkaMessageDto implements Serializable {
-    private Long id;
     private String data;
+    private MessageType type;
 }

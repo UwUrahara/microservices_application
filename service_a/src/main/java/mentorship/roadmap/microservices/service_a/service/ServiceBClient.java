@@ -1,4 +1,4 @@
-package mentorship.roadmap.microservices.service_a.mapper;
+package mentorship.roadmap.microservices.service_a.service;
 
 import mentorship.roadmap.microservices.service_a.dto.MessageRequestDto;
 

@@ -14,6 +14,7 @@ public class KafkaConsumerService {
             topics = "in", groupId = "service-a"
     )
     public void consume(String message) {
+        System.out.println(message);
         messageProcessor.process(message);
     }
 }
