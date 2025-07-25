@@ -4,6 +4,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.support.KafkaHeaders;
+import org.springframework.messaging.Message;
+import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -17,10 +20,13 @@ public class KafkaProducerImpl implements KafkaProducer {
     @Override
     public void sendMessage(Object message) {
         try {
-            kafkaTemplate.send(TOPIC, new ObjectMapper().writeValueAsString(message));
+            Message<String> message1 = MessageBuilder
+                    .withPayload(new ObjectMapper().writeValueAsString(message))
+                    .setHeader(KafkaHeaders.TOPIC, TOPIC)
+                    .build();
+            kafkaTemplate.send(message1);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
-
     }
 }
